@@ -1,4 +1,4 @@
-# Time Series, Streaming, and Signal Data Processing Course
+# Programming3: Time Series, Streaming, and Signal Data Processing
 
 ## Overview
 This course focuses on **practical skills** for processing and analyzing **time series**, **streaming**, and **signal data** using popular data science tools such as:

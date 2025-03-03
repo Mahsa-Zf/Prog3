@@ -1,0 +1,1 @@
+Mahsa did her code in the best approach, she could analyze and found the gap interval and also, she could show this gap interval via Dashboard, also she exhibited her results in three separate curves, I think It is a good idea and Also she used Moving Average during this intervals.  It gives us the better view of Glucose Data.

@@ -175,7 +175,7 @@ We can see the implausible values are no longer there; however, we can still see
 
 ## Analysis Visualizations
 - Time series plots were generated to visually inspect signal trends and verify preprocessing effectiveness.
-Below we can find some of them:
+Below we can find some of them:  
 **NOTE:** Color-coding is column-wise.
 
 *Heart Rate Signal Features In The Specified TimeFrame*
@@ -195,7 +195,7 @@ Below we can find some of them:
 
 ![cross_signal.png](results/cross_signal.png)
 
-*We can see the values in the cross signal table are reflected here, specially the low correlation, due to the sudden change in heart rate.*
+*We can see the values in the cross signal table are reflected here, specially the low correlation, due to the sudden change in heart rate.*  
 **NOTE:** We can use the smoothing option available in the `preprocess_vital_signs` function to make the trends more visible.
 
 ![cross_signal_1_30_1_40.png](results/cross_signal_1_30_1_40.png)

@@ -210,7 +210,7 @@ def _consecutive_nans(data_series):
         start_time=('time', 'first'),
         end_time=('time', 'last')
     ).assign(
-        duration=lambda x: x['end_time'] - x['start_time'] + pd.Timedelta(seconds=1)
+        duration=lambda x: x['end_time'] - x['start_time'] + pd.Timedelta(seconds=1) # +1 second to include the last point
     )
 
     # Combine counts with durations

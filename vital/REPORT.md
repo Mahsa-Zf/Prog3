@@ -10,10 +10,9 @@ This report summarizes the preprocessing, visualization, and initial findings de
 
 *This is the raw data distribution, There are also html versions available in the results directory for interactive exploration*
 
-![Solar8000_ART_SBP_plot.png](attachment:Solar8000_ART_SBP_plot.png)
-![Solar8000_ART_DBP_plot.png](attachment:Solar8000_ART_DBP_plot.png)
-![Solar8000_HR_plot.png](attachment:Solar8000_HR_plot.png)
-
+![alt text](results/systolic/Solar8000_ART_SBP_plot.png)
+![alt text](results/diastolic/Solar8000_ART_DBP_plot.png)
+![alt text](results/heartrate/Solar8000_HR_plot.png)
 ## Key Observations
 - Duplicate rows: 19,260 (identical values, no duplicate timestamps).
 - Missing values: 2,793 across various columns.
@@ -168,9 +167,9 @@ Below we can see tables containing information about consecutive gaps in the dat
 
 *Below we can see the difference of distribution in before and after preprocessing for all 3 signals*
 
-![before_preprocess_boxplot.png](attachment:before_preprocess_boxplot.png)
+![before_preprocess_boxplot.png](results/before_preprocess_boxplot.png)
 
-![after_preprocess_boxplot.png](attachment:after_preprocess_boxplot.png)
+![after_preprocess_boxplot.png](results/after_preprocess_boxplot.png)
 
 We can see the implausible values are no longer there; however, we can still see outliers, as I decided to not exclude them since they may give important information about the patient's state.
 
@@ -180,24 +179,24 @@ Below we can find some of them:
 
 *Heart Rate Signal Features In The Specified TimeFrame*
 
-![feature_extraction_Solar8000_HR.png](attachment:feature_extraction_Solar8000_HR.png)
+![feature_extraction_Solar8000_HR.png](results/heartrate/feature_extraction_Solar8000_HR.png)
 
 *Diastolic BP Signal Features In The Specified TimeFrame*
 
-![feature_extraction_Solar8000_ART_DBP.png](attachment:feature_extraction_Solar8000_ART_DBP.png)
+![feature_extraction_Solar8000_ART_DBP.png](results/diastolic/feature_extraction_Solar8000_ART_DBP.png)
 
 *Systolic BP Signal Features In The Specified TimeFrame*
 
-![feature_extraction_Solar8000_ART_SBP.png](attachment:feature_extraction_Solar8000_ART_SBP.png)
+![feature_extraction_Solar8000_ART_SBP.png](results/systolic/feature_extraction_Solar8000_ART_SBP.png)
 
 
 *This is the table showing the intersignal correlations and metrics such as Pulse Pressure and Rate Pressure Product*
 
-![cross_signal.png](attachment:cross_signal.png)
+![cross_signal.png](results/cross_signal.png)
 
 *We can see the values in the cross signal table are reflected here, specially the low correlation, due to the sudden change in heart rate.*
 
-![cross_signal_1_30_1_40.png](attachment:cross_signal_1_30_1_40.png)
+![cross_signal_1_30_1_40.png](results/cross_signal_1_30_1_40.png)
 
 ## Tools Used
 - Python (Pandas, NumPy, SciPy)

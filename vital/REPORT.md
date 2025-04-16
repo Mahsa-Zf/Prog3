@@ -176,6 +176,7 @@ We can see the implausible values are no longer there; however, we can still see
 ## Analysis Visualizations
 - Time series plots were generated to visually inspect signal trends and verify preprocessing effectiveness.
 Below we can find some of them:
+**NOTE:** Color-coding is column-wise.
 
 *Heart Rate Signal Features In The Specified TimeFrame*
 

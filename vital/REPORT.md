@@ -196,6 +196,7 @@ Below we can find some of them:
 ![cross_signal.png](results/cross_signal.png)
 
 *We can see the values in the cross signal table are reflected here, specially the low correlation, due to the sudden change in heart rate.*
+**NOTE:** We can use the smoothing option available in the `preprocess_vital_signs` function to make the trends more visible.
 
 ![cross_signal_1_30_1_40.png](results/cross_signal_1_30_1_40.png)
 

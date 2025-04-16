@@ -158,8 +158,8 @@ Below we can see tables containing information about consecutive gaps in the dat
 
 
 ## Data Cleaning Strategy
-- Handled physiologically implausible values.
-- Imputation strategies applied selectively based on gap size:
+- Handled physiologically implausible values by temporarily replacing them with np.nan values.
+- Imputation strategies applied selectively based on the nan gap size:
 - Linear interpolation for gaps up to 20 seconds (≤10 samples)
 - Chained forward-backward fill each for gaps up to 20 seconds (5 samples each)
 - Exponentially Weighted Moving Average for the remaining nan values which were for the ~6-7 minute gap at the very end of the surgery

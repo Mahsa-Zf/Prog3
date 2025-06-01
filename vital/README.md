@@ -1,28 +1,96 @@
-# README
+# Vital Signs Analysis Toolkit
 
-## Project: Vital Signs Time Series Analysis using VitalDB
+This project provides a modular, extensible Python framework for loading, preprocessing, analyzing, and visualizing intraoperative vital signs data, with support for the open-access **VitalDB** dataset.
 
-This repository contains Python code and documentation for analyzing intraoperative vital sign signals using the open-access VitalDB dataset.
+---
 
-### Repository Structure
-- `scripts/parser.py`: Handles downloading, loading, and cleaning of the data.
-- `scripts/visualization.py`: Includes functions for plotting and inspecting time series signals.
-- `scripts/analysis.py`: Contains logic for imputation, statistical summarization, and analysis.
-- `logbook/logbook.ipynb`: Main notebook for step-by-step execution, combining all modules.
-- `results`: Includes the plots created in the notebook
-- `Report.md`: Summarizes findings and process.
-- `README.md`: Project overview and usage instructions.
-- `config.yaml`: Config file with data paths and configurable parameters
+## 📦 Modules Overview
 
+### 1. `parser.py`: Data Loading and Preprocessing
+- Load data from `vital` files using paths from `config.yaml`.
+- Handle missing data using interpolation, EWMA, and smoothing.
+- Detect and remove physiological and statistical outliers.
+- Analyze data quality and consecutive NaN segments.
+- Provides convenience functions like `load_data()`, `data_info()`, and `preprocess_vital_signs()`.
 
-### How to Run
-1. Clone this repo.
-2. Create a virtual environment and install dependencies listed in `requirements.txt`.
-**NOTE**: If you have access to the path listed in config.yaml, skip steps 3, 4.
-3. To download the data, you can look for `4649.vital` in this [source](https://physionet.org/content/vitaldb/1.0.0/vital_files/#files-panel)
-4. Create your own config.yaml based on where you store the file.
-5. Execute the `logbook.ipynb` for full data pipeline and visualizations.
+### 2. `analysis.py`: Statistical and Clinical Signal Analysis
+- Window-based signal segmentation and statistical feature extraction (mean, IQR, skew, etc.).
+- Cross-signal analysis: calculates correlations, pulse pressure, and rate-pressure product.
+- Clinical risk tagging (low, normal, high) for PP and RPP.
+- Central class: `VitalSignsAnalyzer`.
+- Configuration managed via `AnalysisConfig`.
 
+### 3. `visualization.py`: Static and Interactive Plotting
+- Static plots using Matplotlib.
+- Interactive plots using Bokeh + Panel.
+- Visual styling for signals and events.
+- Dashboard generation with `VisualizationManager`.
+- Functions: `static_plot_vitals()` and `create_dynamic_time_series_plot()`.
 
-### Acknowledgments
-We acknowledge the use of VitalDB and relevant academic publications.
+---
+
+## 📁 Directory Structure
+
+```
+.
+├── parser.py
+├── analysis.py
+├── visualization.py
+├── __init__.py
+├── config.yaml
+├── logbook/
+│   └── logbook.ipynb      # Full pipeline walkthrough
+├── results/               # Auto-generated plots
+├── README.md              # This file
+├── Report.md              # Summary of findings
+└── requirements.txt       # Dependencies
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Set up environment
+```bash
+git clone <repo-url>
+cd <project-folder>
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+### 2. Load and explore data
+Update `config.yaml` with the absolute path to your `.vital` file.
+
+```python
+from vitalsigns import load_data, data_info
+df = load_data("4649")  # assuming '4649' maps to your file in config
+data_info(df)
+```
+
+### 3. Preprocess and analyze
+```python
+from vitalsigns import preprocess_vital_signs, analyze_vital_signs
+preprocessed, nan_info = preprocess_vital_signs(df["Solar8000/HR"], "hr")
+styled_results = analyze_vital_signs(df, start_time="00:00:00", end_time="01:00:00")
+```
+
+### 4. Visualize
+```python
+from vitalsigns import static_plot_vitals, create_dynamic_time_series_plot
+static_plot_vitals(df)
+create_dynamic_time_series_plot(df, "Solar8000/HR")
+```
+
+---
+
+## 📖 Acknowledgments
+
+This toolkit builds on the VitalDB dataset, developed by Seoul National University Hospital. 
+- VitalDB: https://physionet.org/content/vitaldb/
+
+---
+
+## 🧪 Note
+
+This package is designed for **exploratory physiological signal analysis** in a surgical context, with support for time-windowed statistical summaries and clinical interpretation heuristics.

@@ -63,21 +63,21 @@ pip install -r requirements.txt
 Update `config.yaml` with the absolute path to your `.vital` file.
 
 ```python
-from vitalsigns import load_data, data_info
+from scripts.parser import load_data, data_info, preprocess_vital_signs
 df = load_data("4649")  # assuming '4649' maps to your file in config
 data_info(df)
 ```
 
 ### 3. Preprocess and analyze
 ```python
-from vitalsigns import preprocess_vital_signs, analyze_vital_signs
+from scripts.analysis import analyze_vital_signs
 preprocessed, nan_info = preprocess_vital_signs(df["Solar8000/HR"], "hr")
 styled_results = analyze_vital_signs(df, start_time="00:00:00", end_time="01:00:00")
 ```
 
 ### 4. Visualize
 ```python
-from vitalsigns import static_plot_vitals, create_dynamic_time_series_plot
+from scripts.visualization import static_plot_vitals, create_dynamic_time_series_plot
 static_plot_vitals(df)
 create_dynamic_time_series_plot(df, "Solar8000/HR")
 ```

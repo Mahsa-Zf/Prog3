@@ -4,7 +4,7 @@ This project provides a modular, extensible Python framework for loading, prepro
 
 ---
 
-## 📦 Modules Overview
+## Modules Overview
 
 ### 1. `parser.py`: Data Loading and Preprocessing
 - Load data from `vital` files using paths from `config.yaml`.
@@ -29,7 +29,7 @@ This project provides a modular, extensible Python framework for loading, prepro
 
 ---
 
-## 📁 Directory Structure
+## Directory Structure
 
 ```
 .
@@ -48,7 +48,7 @@ This project provides a modular, extensible Python framework for loading, prepro
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Set up environment
 ```bash
@@ -84,7 +84,7 @@ create_dynamic_time_series_plot(df, "Solar8000/HR")
 
 ---
 
-## 📖 Acknowledgments
+## Acknowledgments
 
 This toolkit builds on the VitalDB dataset, developed by Seoul National University Hospital. 
 - VitalDB: https://physionet.org/content/vitaldb/
